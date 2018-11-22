@@ -1,4 +1,12 @@
 
+<?php
+  session_start();
+
+  $email=$_SESSION['email'];
+  $token=$_SESSION['token'];
+  $url="confirm.php?email=$email&token=$token";
+
+?>
 <!DOCTYPE html>
 
 <html>
@@ -133,7 +141,7 @@ including confidentiality provisions, shall be binding up through the end of thi
 <p>© 2018 IVTREE IT Solutions Private Ltd. All rights reserved.</p>
   </div><br>
 
-<form action="confirm.php" method="post">
+<form action="eula.php" method="post">
 <p style="margin-left: 320px;"><input id="field_terms" type="checkbox" required name="terms">
 <label for="field_terms">I accept the <u>Terms and Conditions</u></label></p>
 <button id="submit" type="submit" class="btn btn-primary mb-2" style="margin-left: 320px; background-color: #054978">Submit</button>
@@ -159,23 +167,6 @@ including confidentiality provisions, shall be binding up through the end of thi
 
 
 <script>
-  function disableSubmit() {
-  document.getElementById("submit").disabled = true;
- }
-
-  function activateButton(element) {
-
-      if(element.checked) {
-        document.getElementById("submit").disabled = false;
-        document.getElementById("submit").onclick = function(){
-          location.href = "http://localhost/Action-plan/confirm.php?email=$email&token=$token";
-        }
-       }
-       else  {
-        document.getElementById("submit").disabled = true;
-      }
-
-  };
 </script>
 <!--checkbox style-->
 <style type="text/css">
